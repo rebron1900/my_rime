@@ -1,0 +1,4 @@
+patch:
+  style/horizontal: false  # 设置候选词列表竖向显示
+  menu/page_size: 5
+  translator/spelling_hints: 1
