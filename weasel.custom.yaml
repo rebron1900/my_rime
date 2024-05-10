@@ -11,58 +11,96 @@ patch:
     
 
   ##主题设置
-  style/font_face: 'Maple UI'
-  style/font_point: 13
-  style/label_font_point: 12
-  style/color_scheme: wechat_light
-  style/color_scheme_dark: wechat_dark
-  style/layout/corner_radius: 8 # 候选框外窗口圆角半径
-  style/layout/shadow_radius: 5 #全局阴影模糊半径，如果为0则全局禁用阴影
-  style/layout/shadow_offset_x: 3 # 阴影x偏置，正向右负向左
-  style/layout/shadow_offset_y: 3 # 阴影y偏置，如果x，y都是0,而shadow_radius不为0，则四周绘制阴影；否则drowshadow阴影
-  #style/horizontal: false
-
-
-  preset_color_schemes/wechat_light:
-    name: 微信键盘浅色
-    author: zsakvo      
-    horizontal: true                          # true横排，false竖排
-    back_color: 0xFFFFFF                      # 候选条背景色
-    border_height: 0                          # 窗口上下高度，大于圆角半径才生效
-    border_width: 8                           # 窗口左右宽度，大于圆角半径才生效
-    candidate_format: '%c %@ '                # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
-    comment_text_color: 0x999999              # 拼音等提示文字颜色
-    corner_radius: 5                          # 窗口圆角
-    hilited_corner_radius: 5                  # 高亮圆角
-    font_face: 'Maple'                        # 候选词字体
-    font_point: 14                            # 候选字大小
-    hilited_candidate_back_color: 0x75B100    # 第一候选项背景色
-    hilited_candidate_text_color: 0xFFFFFF    # 第一候选项文字颜色
-    label_font_point: 12                      # 候选编号大小
-    text_color: 0x424242                      # 拼音行文字颜色
-    inline_preedit: true                      # 拼音位于： 候选框 false | 行内
-    border_color: 0x00FFFFFF
-    shadow_color: 0x4c808080                  #阴影颜色
+ 
+  style/+:
+    font_face: 'Maple UI'
+    label_format: "%s"
+    inline_preedit: true
+    font_point: 15
+    label_font_point: 15
+    comment_font_point: 15
+    horizontal: true
+    color_scheme: wechat_light
+    color_scheme_dark: wechat_dark
+    layout:
+      min_width: 10
+      margin_x: 12
+      margin_y: 6
+      border: 2
+      spacing: 20
+      candidate_spacing: 22
+      hilite_spacing: 6
+      hilite_padding: 2
+      hilite_padding_x: 8
+      corner_radius: 10
+      round_corner: 8
+      shadow_radius: 8
+      shadow_offset_x: 3
+      shadow_offset_y: 3
+    
+  preset_color_schemes/+:
+    wechat_light:
+      name: 微信键盘浅色
+      author: zsakvo      
+      horizontal: true                          # true横排，false竖排
+      back_color: 0xFFFFFF                      # 候选条背景色
+      border_height: 0                          # 窗口上下高度，大于圆角半径才生效
+      border_width: 8                           # 窗口左右宽度，大于圆角半径才生效
+      candidate_format: '%c %@ '                # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
+      comment_text_color: 0x999999              # 拼音等提示文字颜色
+      corner_radius: 5                          # 窗口圆角
+      hilited_corner_radius: 5                  # 高亮圆角
+      font_face: 'Maple'                        # 候选词字体
+      font_point: 14                            # 候选字大小
+      hilited_candidate_back_color: 0x75B100    # 第一候选项背景色
+      hilited_candidate_text_color: 0xFFFFFF    # 第一候选项文字颜色
+      label_font_point: 12                      # 候选编号大小
+      text_color: 0x424242                      # 拼音行文字颜色
+      inline_preedit: true                      # 拼音位于： 候选框 false | 行内
+      border_color: 0x00FFFFFF
+      shadow_color: 0x4c808080                  #阴影颜色
+        
+    wechat_dark:
+      name: 微信键盘深色
+      author: zsakvo      
+      horizontal: true                          # true横排，false竖排
+      back_color: 0x2e2925                      # 候选条背景色
+      border_height: 0                          # 窗口上下高度，大于圆角半径才生效
+      border_width: 8                           # 窗口左右宽度，大于圆角半径才生效
+      candidate_format: '%c %@ '                # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
+      comment_text_color: 0x999999              # 拼音等提示文字颜色
+      corner_radius: 5                          # 窗口圆角
+      hilited_corner_radius: 5                  # 高亮圆角
+      font_face: 'Maple'                        # 候选词字体
+      font_point: 14                            # 候选字大小
+      hilited_candidate_back_color: 0x75B100    # 第一候选项背景色
+      hilited_candidate_text_color: 0xFFFFFF    # 第一候选项文字颜色
+      label_font_point: 12                      # 候选编号大小
+      text_color: 0x424242                      # 拼音行文字颜色
+      label_color: 0x999999                     # 预选栏编号颜色
+      candidate_text_color: 0xe9e9ea            # 预选项文字颜色
+      inline_preedit: false                     # 拼音位于： 候选框 false | 行内 true
+      border_color: 0x00FFFFFF
+      shadow_color: 0x4c808080                  #阴影颜色
       
-  preset_color_schemes/wechat_dark:
-    name: 微信键盘深色
-    author: zsakvo      
-    horizontal: true                          # true横排，false竖排
-    back_color: 0x2e2925                      # 候选条背景色
-    border_height: 0                          # 窗口上下高度，大于圆角半径才生效
-    border_width: 8                           # 窗口左右宽度，大于圆角半径才生效
-    candidate_format: '%c %@ '                # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
-    comment_text_color: 0x999999              # 拼音等提示文字颜色
-    corner_radius: 5                          # 窗口圆角
-    hilited_corner_radius: 5                  # 高亮圆角
-    font_face: 'Maple'                        # 候选词字体
-    font_point: 14                            # 候选字大小
-    hilited_candidate_back_color: 0x75B100    # 第一候选项背景色
-    hilited_candidate_text_color: 0xFFFFFF    # 第一候选项文字颜色
-    label_font_point: 12                      # 候选编号大小
-    text_color: 0x424242                      # 拼音行文字颜色
-    label_color: 0x999999                     # 预选栏编号颜色
-    candidate_text_color: 0xe9e9ea            # 预选项文字颜色
-    inline_preedit: false                     # 拼音位于： 候选框 false | 行内 true
-    border_color: 0x00FFFFFF
-    shadow_color: 0x4c808080                  #阴影颜色
+    win11light:
+      name: " Win11浅色 / Win11light"
+      text_color: 0x191919
+      label_color: 0x191919
+      hilited_label_color: 0x191919
+      back_color: 0xf9f9f9
+      border_color: 0x009e5a00
+      hilited_mark_color: 0xc06700
+      hilited_candidate_back_color: 0xf0f0f0
+      shadow_color: 0x20000000
+      
+    win11dark:
+      name: "Win11暗色 / Win11Dark"
+      text_color: 0xf9f9f9
+      label_color: 0xf9f9f9
+      back_color: 0x2C2C2C
+      hilited_label_color: 0xf9f9f9
+      border_color: 0x002C2C2C
+      hilited_mark_color: 0xFFC24C
+      hilited_candidate_back_color: 0x383838
+      shadow_color: 0x20000000
